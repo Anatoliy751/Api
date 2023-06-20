@@ -20,15 +20,15 @@ public class Main {
                 .count();
         System.out.println(minor);
 
-        List<String> SurnameArmy = persons.stream()
+        List<String> surnameArmy = persons.stream()
                 .filter(person -> person.getSex() == Sex.MAN)
                 .filter(person -> person.getAge() >= 18)
                 .filter(person -> person.getAge() < 27)
                 .map(Person::getFamily)
                 .collect(Collectors.toList());
-        System.out.println(SurnameArmy);
+        System.out.println(surnameArmy);
 
-        List<Person> Educate = persons.stream()
+        List<Person> educate = persons.stream()
                 .filter(person -> person.getEducation() == Education.HIGHER)
                 .filter(person -> person.getSex() == Sex.WOMAN)
                 .filter(person -> person.getAge() >= 18)
@@ -37,6 +37,6 @@ public class Main {
                 .filter(person -> person.getAge() < 65)
                 .sorted(Comparator.comparing(Person::getFamily))
                 .collect(Collectors.toList());
-        System.out.println(Educate);
+        System.out.println(educate);
     }
 }
