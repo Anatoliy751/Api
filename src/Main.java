@@ -2,6 +2,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
+
+
     public static void main(String[] args) {
         List<String> names = Arrays.asList("Jack", "Connor", "Harry", "George", "Samuel", "John");
         List<String> families = Arrays.asList("Evans", "Young", "Harris", "Wilson", "Davies", "Adamson", "Brown");
@@ -30,11 +32,9 @@ public class Main {
 
         List<Person> educate = persons.stream()
                 .filter(person -> person.getEducation() == Education.HIGHER)
-                .filter(person -> person.getSex() == Sex.WOMAN)
                 .filter(person -> person.getAge() >= 18)
-                .filter(person -> person.getAge() < 60)
-                .filter(person -> person.getSex() == Sex.MAN)
-                .filter(person -> person.getAge() < 65)
+                .filter(person -> person.getSex() == Sex.MAN && person.getAge() < 65)
+                .filter(person -> person.getSex() == Sex.WOMAN && person.getAge() < 60)
                 .sorted(Comparator.comparing(Person::getFamily))
                 .collect(Collectors.toList());
         System.out.println(educate);
